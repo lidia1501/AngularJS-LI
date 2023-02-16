@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Paradis | Înregistrare</title>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+	<link rel="stylesheet" href="register.css">
+	<script src="app.js"></script>
+	<style>
+	.eroare{
+		border:1px solid purple;
+	}
+</style>
+</head>
+<body ng-app="myApp"  class="background-image">
+	<div ng-include="'header.html'"></div>
+	<div class="container1">
+		<div ng-controller="RegisterController" ng-init ="disableRegister = true">
+			<form name="myForm" ng-submit="confirma()">
+				<h1 style="text-align: center; margin-top: 0; color: white;">Înregistrare</h1>
+				<div class="row">
+					<div class="col-25">
+						<label  style="color: white;margin-left: 20px;" for="nume">Nume</label>
+					</div>
+					<div class="col-75">
+						<input ng-change="verificaDisponibilitate()" type="text" name="name" ng-model="newUser.nume" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label  style="color: white;margin-left: 20px;" for="email">Email </label>
+					</div>
+					<div class="col-75">
+						<input validare ng-change="verificaDisponibilitate()" type="email" name="email" ng-model="newUser.email" required>
+						<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+							<span ng-show="myForm.email.$error.required">{{mesajEroare}}</span>
+							<span ng-show="myForm.email.$error.email">Invalid email address.</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label  style="color: white;margin-left: 20px;" for="login">Login </label>
+						</div>
+						<div class="col-75">
+							<input ng-change="verificaDisponibilitate()" type="text" name="login" ng-model="newUser.login" required>
+							<span style="color:red" ng-show="myForm.login.$dirty && myForm.login.$invalid">
+								<span ng-show="myForm.login.$error.required">Login is required.</span>
+							</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label   style="color: white;margin-left: 20px;" for="password" >Parola </label>
+						</div>
+						<div class="col-75">
+							<input ng-change="verificaDisponibilitate()" type="password" name="parola" ng-model="newUser.password" required>
+						</div>
+					</div>
+					<div>
+						<button type = "submit" ng-disabled="disableRegister" class="submitButton">Înregistrează-te</button>	
+						<button class="submitButton" ng-click="anuleaza()">Șterge</button>
+					</form>
+				</div>
+				<div>
+					<div ng-show="afiseaza">
+						<p style="text-align: center;margin-top: 20px;color: white;"> A-ți fost înregistrat cu succes !</p>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<footer>
+		<div class="footer">
+			<br><p ng-non-bindable class="footer_text">Acesta este un text non-bindable {{Garbur Mirela}}</p>
+		</div>
+	</footer>
+</body>
+</html>

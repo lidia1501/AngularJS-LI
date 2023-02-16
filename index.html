@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Paradis | Pagina Principală</title>
+	<meta charset="UTF-8">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="index.css">
+	<script src="app.js"></script>
+	<style>
+		input[type=text], select {
+    	width: 25%;
+    	padding: 12px;
+    	border: 1px solid #ccc;
+    	border-radius: 4px;
+    	resize: vertical;
+	}
+
+	.select_filtru {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+
+	ul li {
+		background: #cce5ff;
+		margin: 5px;
+	}
+
+	.span3{
+		margin: auto;
+		width: 25%;
+		padding: 10px;
+		margin-bottom: 20px;
+	}
+	</style>
+</head>
+<body ng-app="myApp">
+	<div ng-include="'header.html'"></div>
+	<div ng-controller="IndexController" ng-init="afiseaza=false;" style="margin-left: 40px;">
+	<h3 style="text-align: center;"><b>Caută produsele în stoc:</b></h3>
+	Filtrează: <input  ng-mousemove ="countMouseMove = countMouseMove + 1" ng-paste="countPaste = countPaste + 1"  ng-cut="countCut = countCut + 1"  ng-copy="countCopy = countCopy + 1" ng-focus="count = count + 1" ng-init="count=0;countCopy=0;countCut=0;countPaste=0;countMouseMove=0"  type="text" ng-model="filtreaza" class="filtru select_filtru">
+	Grupează după:
+	<select ng-model="grupare" class="filtru select_filtru">
+		<option value=""></option>
+		<option value="nume"> Dupa nume 
+		<option value="-pret"> Dupa Pret
+	</select>
+	Limitează după:
+	<select ng-model="limita" class="filtru select_filtru">
+		<option value=""></option>
+		<option value="1"> 1 produse 
+		<option value="2"> 2 produse
+	</select>
+
+<p>Acest input a fost focusat de {{count}} ori</p>
+<p>Ati copiat textul din acest input de {{countCopy}} ori</p>
+<p>Ati efectuat actiunea 'cut' din input de {{countCut}} ori</p>
+<p>Ati facut actiunea ng-paste in  acest input de {{countPaste}} ori</p>
+<p>Ng-mousemove a fost apelat de {{countMouseMove}} ori</p>
+<b><p>Produsele alese de dumneavoastră:</p></b>
+
+<ul ng-show= "telefoaneCart">
+	<li ng-repeat="x in telefoaneCart track by $index">Nume: {{x.nume}}, Pretul: {{x.pret}} Lei<span style="color:red;" ng-click="removeFromCart($index)"> x</span>
+	</li>
+</ul>
+<b><p> Suma totală spre achitare : {{getSumaFromCart()}} lei</p></b><br>
+<div class="container">
+	<div class="row"> 
+		<div ng-repeat="x in telefoane| filter : filtreaza  | orderBy: grupare | limitTo : limita" class="block span3">
+			<div class="product">
+				<img src="{{x.imagine}}">
+			</div>
+		<div class="info">
+			<h4>{{x.nume}}</h4>
+			<span class="price" style="text-align: center;"><b>{{x.pret}} lei</b></span>
+			<a class="btn btn-info pull-right" href="#" ng-click="addToCart(x)"><i class="icon-shopping-cart" ></i>Adaugă la coș</a>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<footer>
+	<div class="footer">
+		<br><p ng-non-bindable class="footer_text">Acesta este un text non-bindable {{Garbur Mirela}}</p>
+	</div>
+</footer>
+</body>
+</html>
+

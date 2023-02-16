@@ -1,0 +1,141 @@
+body{
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat';
+    font-size: 12px;
+    margin: 0;
+}
+
+.background-image{
+    background-image: url("images/bg.jpg");
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #2bc6ed;
+}
+
+.topnav a {
+    float: left;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ffffff;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #2bc6ed;
+    color: white;
+}
+
+.logo{
+    width: 16px;
+    height: 16px;
+}
+
+.container1 {
+    border-radius: 5px;
+    background-color: #1b3036;
+    padding: 20px;
+    width: 30%;
+    margin-left: 37%;
+    margin-top: 40px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 65%;
+    margin-top: 6px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.submitButton{
+    background-color: #2bc6ed;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 30px;
+    margin-left: 10%;
+    transition: 0.9s;
+    border-radius: 5px;
+}
+.submitButton[disabled]{
+    background-color:gray;
+    cursor: default;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 30px;
+    margin-left: 10%;
+    transition: 0.9s;
+    border-radius: 5px;
+}
+.submitButton[disabled]:hover{
+    background-color:gray;
+    cursor: default;
+    border: none;
+ 
+}
+.submitButton:hover{
+    background-color: #7736d1;
+    transition: 0.9s;
+    cursor: pointer;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=text],input[type=email],input[type=password],input[type=login], select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.logo{
+    width: 16px;
+    height: 16px;
+}
+
+.inregistrare{
+    margin-left: 53%;
+}
+
+.footer{
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    color: white;
+    margin-top: 250px;
+}
+
+.footer_text{
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+      width: 50%;
+}

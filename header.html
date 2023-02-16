@@ -1,0 +1,38 @@
+<head>
+<meta charset="UTF-8">
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+ <link rel="stylesheet" href="header.css">
+<script src="app.js"></script>
+</head>
+
+<div  ng-app="myApp" ng-controller="HeaderController" >
+      
+  <modal title="" visible="showModal">
+    <form>
+        <h3 align="center">Doresti sa te deloghezi?</h3>
+    </br>
+  </br>
+       <button class="btn btn-default" ng-click="logout()">Da</button>
+       <button style = "float: right;"class="btn btn-default" ng-click="toggleModal()">Nu</button>
+    </form>
+  </modal>
+  
+    <div class="topnav">
+        <a class="active" href="index.html"><img src="images\logo.png" class="logo"></a>
+        <a href="index.html" id="products">Produse</a>
+
+
+        <a  ng-hide="currentUser" href="register.html" style="float: right;">Înregistrare</a>
+        <a  ng-show="!currentUser" href="login.html" style="float: right;">Logare</a>
+
+        <a ng-show="currentUser"   href="#Iesire" style="float: right;" ng-click="toggleModal()">Ieșire cont</a>
+        <a ng-show="currentUser"   href="" style="float: right;">Salut   <span ng-bind="currentUser" style="color:purple"> </span></a>
+
+    </div>
+</div>

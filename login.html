@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Paradis | Autentificare</title>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="login.css">
+	<script src="app.js"></script>
+	<style>
+</style>
+</head>
+<body ng-app="myApp" class="background-image">
+	<div ng-include="'header.html'"></div>
+
+	<div  ng-controller="LoginController" class="container1">
+		<form>
+			<h1 style="text-align: center; margin-top: 0; color: white;">Autentificare</h1>
+			<div class="row">
+				<div class="col-25">
+					<label style="color: white;margin-left: 20px;" for="email">Email </label>
+				</div>
+				<div class="col-75">
+					<input type="email" name="login" ng-model = "loginUser.email">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label style="color: white;margin-left: 20px;" for="email">Parolă </label>
+				</div>
+				<div class="col-75">
+					<input type="password" name="parola" ng-model = "loginUser.password">
+				</div>
+			</div>
+			<div>
+				<button type="submit" class="submitButton" ng-click="loginFunc()">Autentifică-te</button> <!-- onclick="openWin()">-->		
+			</form>
+		</div>
+	</div>
+		<footer>
+			<div class="footer">
+				<br><p ng-non-bindable class="footer_text">Acesta este un text non-bindable {{Garbur Mirela}}</p>
+			</div>
+		</footer>
+	</body>
+	</html>
